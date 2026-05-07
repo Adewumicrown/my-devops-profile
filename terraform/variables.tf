@@ -25,7 +25,7 @@ variable "environment" {
   }
 }
 
-# ── Networking ────────────────────────────────────────────────
+# ── vpc ────────────────────────────────────────────────
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
   type        = string
@@ -48,17 +48,18 @@ variable "availability_zone" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "ami_id" {
-  description = "Amazon Linux 2 AMI ID (region-specific). Leave empty to use latest."
+  description = "Ubuntu 22.04 LTS AMI ID for your chosen region"
   type        = string
-  default     = ""
+  # us-east-1 Ubuntu 22.04 LTS — update if using a different region
+  default     = "ami-0c7217cdde317cfec"
 }
 
 variable "key_name" {
-  description = "Name of the existing EC2 Key Pair for SSH access"
+  description = "Name of your EC2 key pair (created in AWS Console)"
   type        = string
 }
 
@@ -66,4 +67,10 @@ variable "allowed_ssh_cidr" {
   description = "CIDR allowed to SSH into the instance (restrict to your IP in prod)"
   type        = string
   default     = "0.0.0.0/0"
+}
+
+variable "log_retention_days" {
+  description = "CloudWatch log retention in days"
+  type        = number
+  default     = 7
 }
