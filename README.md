@@ -1,5 +1,7 @@
 # DevOps Profile — Production Deployment
 
+![CI/CD Pipeline](https://github.com/Adewumicrown/my-devops-profile/actions/workflows/deploy.yml/badge.svg)
+
 A production-ready DevOps portfolio page deployed on AWS using modern DevOps practices including Infrastructure as Code, containerisation, CI/CD automation, and cloud monitoring.
 
 **Live URL:** http://44.201.21.34
